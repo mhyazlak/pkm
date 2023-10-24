@@ -1,0 +1,70 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Compiled output
+src/angular/dist
+src/angular/tmp
+src/angular/out-tsc
+src/angular/bazel-out
+
+# Node
+src/angular/node_modules
+src/angular/npm-debug.log
+src/angular/yarn-error.log
+
+# IDEs and editors
+src/angular/.idea/
+src/angular/.classpath
+src/angular/.c9/
+src/angular/*.launch
+src/angular/.settings/
+src/angular/*.sublime-workspace
+
+# Visual Studio Code
+src/angular/.vscode/*
+src/angular/!.vscode/settings.json
+src/angular/!.vscode/tasks.json
+src/angular/!.vscode/launch.json
+src/angular/!.vscode/extensions.json
+src/angular/.history/*
+
+# Miscellaneous
+src/angular/.angular/cache
+src/angular/.sass-cache/
+src/angular/connect.lock
+src/angular/coverage
+src/angular/libpeerconnection.log
+src/angular/testem.log
+src/angular/typings
+
+# System files
+src/angular/.DS_Store
+src/angular/Thumbs.db
