@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PokedexComponent } from './component/pokedex/pokedex.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './component/ui/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PokedexComponent
+    PokedexComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
