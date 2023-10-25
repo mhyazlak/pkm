@@ -27,5 +27,8 @@ public class PokemonDTO {
     @JsonProperty("name")
     private String name;
 
+    @Column(name="pokemon_display_sprite", nullable = false)
+    @JsonProperty("sprite")
+    private String sprite;
 
 }

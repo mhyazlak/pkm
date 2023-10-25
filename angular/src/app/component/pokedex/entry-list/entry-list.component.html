@@ -1,0 +1,8 @@
+<ul class="list-group">
+    <pokedex-entry
+        *ngFor="let pokemon of pokemonList"
+        [pokemon]="pokemon"
+        [isActive]="pokemon === selectedPokemon"
+        (click)="onSelect(pokemon)"
+    ></pokedex-entry>
+</ul>

@@ -1,4 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
-html{
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+*,
+:root {
+    margin: 0;
+    padding: 0;
+    --main-colour: #641056;
 }
+
+html {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+    background-color: grey;
+}
+/* Importing Bootstrap SCSS file. */
+@import "bootstrap/scss/bootstrap";

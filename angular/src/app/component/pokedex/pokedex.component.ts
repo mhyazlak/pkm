@@ -1,21 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { PokemonService } from '../../service/pokemon.service'; // Update the path accordingly
-import { Pokemon } from '../../model/pokemon'; // Update the path accordingly
+import { PokemonService } from '../../service/pokemon.service';
+import { Pokemon } from '../../model/pokemon';
 
 @Component({
-  selector: 'app-pokedex',
-  templateUrl: './pokedex.component.html',
-  styleUrls: ['./pokedex.component.scss']
+    selector: 'app-pokedex',
+    templateUrl: './pokedex.component.html',
+    styleUrls: ['./pokedex.component.scss'],
 })
-export class PokedexComponent implements OnInit {
+export class PokedexComponent {
+    pokemonList: Pokemon[] = [];
+    loading = true; // set initial state to loading
+    loadingFailed = false; // indicate whether loading has failed
 
-  pokemons: Pokemon[] = [];
+    selectedPokemon: Pokemon | null = null;
 
-  constructor(private pokemonService: PokemonService) { }
+    constructor(private pokemonService: PokemonService) {}
 
-  ngOnInit(): void {
-    this.pokemonService.getPokemons().subscribe(data => {
-      this.pokemons = data.map(pokemon => new Pokemon(pokemon.id, pokemon.name));
-    });
-  }
+    setSelectedPokemon(pokemon: Pokemon): void {
+        this.selectedPokemon = pokemon;
+    }
+
+    ngOnInit(): void {
+        this.pokemonService.getPokemons().subscribe(
+            (data) => {
+                this.pokemonList = data.map(
+                    (pokemon) =>
+                        new Pokemon(pokemon.id, pokemon.name, pokemon.sprite)
+                );
+                this.loading = false;
+            },
+            (error) => {
+                console.error('Failed to load pokemons: ', error);
+                this.loading = false;
+                this.loadingFailed = true;
+            }
+        );
+    }
 }

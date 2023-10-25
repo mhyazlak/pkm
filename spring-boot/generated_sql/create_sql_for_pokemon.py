@@ -13,9 +13,10 @@ with open(output_file, "w") as sql_file:
         if response.status_code == 200:
             data = response.json()
             pokemon_name = data["name"]
+            pokemon_sprite_url = data["sprites"]["other"]["official-artwork"]["front_default"]
 
             # Write the SQL insert statement with id and name to the file
-            sql_statement = f"INSERT INTO Pokemon (id, name) VALUES ({pokemon_id}, '{pokemon_name}');\n"
+            sql_statement = f"INSERT INTO Pokemon (id, name, pokemon_display_sprite) VALUES ({pokemon_id}, '{pokemon_name}', '{pokemon_sprite_url}');\n"
             sql_file.write(sql_statement)
         else:
             print(f"Failed to fetch data for Pokemon with ID {pokemon_id}")

@@ -1,9 +1,20 @@
-<div *ngIf="pokemons.length; else loadingContent">
-    <div *ngFor="let pokemon of pokemons">
-        {{ pokemon.name }}
-        <!-- Adjust according to your Pokemon model's properties -->
-        <!-- Add more properties or style as needed -->
+<div id="pokedex-container">
+    <div
+        *ngIf="pokemonList.length; else noData"
+        class="container-fluid row m-0"
+    >
+        <pokedex-entry-list
+            [pokemonList]="pokemonList"
+            (pokemonSelected)="setSelectedPokemon($event)"
+            class="row col-6 m-0"
+        ></pokedex-entry-list>
+        <pokedex-entry-display [pokemon]="selectedPokemon" class="row col-6">
+        </pokedex-entry-display>
     </div>
-</div>
 
-<ng-template #loadingContent> Loading Pokémon... </ng-template>
+    <ng-template #noData>
+        <div *ngIf="loading; else failedContent">Loading Pokémon...</div>
+    </ng-template>
+
+    <ng-template #failedContent>Loading failed. Please try again.</ng-template>
+</div>

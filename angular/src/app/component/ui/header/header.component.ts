@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  appName = environment.appName;
+
+  navbarItems = [
+    { value: 'battle', display: 'Battle' },
+    { value: 'pokedex', display: 'Pokedex' },
+    { value: 'movedex', display: 'Movedex' },
+    { value: 'profile', display: 'Profile' }
+  ];
 }
