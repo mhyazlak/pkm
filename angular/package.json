@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "postbuild": "xcopy /s /i \".\/dist\" \"..\/spring-boot\/src\/main\/resources\/static\" \/Y"
   },
   "private": true,
   "dependencies": {

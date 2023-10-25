@@ -1,0 +1,9 @@
+<div *ngIf="pokemons.length; else loadingContent">
+    <div *ngFor="let pokemon of pokemons">
+        {{ pokemon.name }}
+        <!-- Adjust according to your Pokemon model's properties -->
+        <!-- Add more properties or style as needed -->
+    </div>
+</div>
+
+<ng-template #loadingContent> Loading Pokémon... </ng-template>

@@ -1,5 +1,5 @@
 :: Change the directory to the Angular app
-cd src\angular
+cd angular
 
 :: Build the Angular application
 npm run build
