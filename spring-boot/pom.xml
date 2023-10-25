@@ -11,7 +11,7 @@
 	<groupId>private</groupId>
 	<artifactId>pkm-online</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<name>pokemon-online</name>
 	<description>Pokemon online game</description>
 	<properties>
