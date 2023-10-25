@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Pokemon } from '../model/pokemon';
 import { AjaxResponse } from '../model/ajax-response';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
