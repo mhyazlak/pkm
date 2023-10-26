@@ -18,8 +18,16 @@ public class PokemonServiceImpl implements IPokemonService {
     @Override
     @Transactional
     public PokemonDTO read(long id) {
-        return pokemonDAO.read(id);
+
+        PokemonDTO pokemonDb = null;
+        try {
+             pokemonDb = pokemonDAO.read(id);
+        } catch (Exception e) {
+            throw e;
+        }
+        return pokemonDb;
     }
+
 
     @Override
     public List<PokemonDTO> readAll() {

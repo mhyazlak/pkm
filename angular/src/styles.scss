@@ -11,5 +11,9 @@ html {
         sans-serif;
     background-color: grey;
 }
+
+.capitalize {
+    text-transform: capitalize;
+}
 /* Importing Bootstrap SCSS file. */
 @import "bootstrap/scss/bootstrap";

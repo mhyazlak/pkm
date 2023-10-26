@@ -1,15 +1,18 @@
 <div id="pokedex-container">
     <div
         *ngIf="pokemonList.length; else noData"
-        class="container-fluid row m-0"
+        class="container-fluid row m-0 d-flex justify-content-between"
     >
         <pokedex-entry-list
             [pokemonList]="pokemonList"
             (pokemonSelected)="setSelectedPokemon($event)"
-            class="row col-6 m-0"
+            class="row col-4 m-0"
         ></pokedex-entry-list>
-        <pokedex-entry-display [pokemon]="selectedPokemon" class="row col-6">
-        </pokedex-entry-display>
+        <pokedex-entry-display
+            [pokemon]="selectedPokemon"
+            (changeSelectedPokemon)="setSelectedPokemon($event)"
+            class="row col-7"
+        ></pokedex-entry-display>
     </div>
 
     <ng-template #noData>

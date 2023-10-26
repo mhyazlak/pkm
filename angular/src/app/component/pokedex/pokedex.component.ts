@@ -23,10 +23,7 @@ export class PokedexComponent {
     ngOnInit(): void {
         this.pokemonService.getPokemons().subscribe(
             (data) => {
-                this.pokemonList = data.map(
-                    (pokemon) =>
-                        new Pokemon(pokemon.id, pokemon.name, pokemon.sprite)
-                );
+                this.pokemonList = data;
                 this.loading = false;
             },
             (error) => {

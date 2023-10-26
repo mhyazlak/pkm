@@ -14,8 +14,8 @@ public class PokemonDAO {
     @Autowired
     private EntityManager entityManager;
 
-    private static final String SELECT_SINGLE = "SELECT * FROM Pokemon WHERE id=?1";
-    private static final String SELECT_ALL= "SELECT * FROM Pokemon";
+    private static final String SELECT_SINGLE = "SELECT * FROM Pokemon_VIEW WHERE id=?1";
+    private static final String SELECT_ALL= "SELECT * FROM Pokemon_VIEW";
 
     public PokemonDTO read(long id) {
         Query query = entityManager.createNativeQuery(SELECT_SINGLE, PokemonDTO.class);
@@ -27,4 +27,5 @@ public class PokemonDAO {
         Query query = entityManager.createNativeQuery(SELECT_ALL, PokemonDTO.class);
         return (List<PokemonDTO>) query.getResultList();
     }
+
 }

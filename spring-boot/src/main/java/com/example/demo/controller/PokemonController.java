@@ -34,6 +34,7 @@ public class PokemonController {
         }
         return response;
     }
+
     @ResponseBody
     @GetMapping("/readAll")
     public AjaxResponse<String, List<PokemonDTO>> read() {
