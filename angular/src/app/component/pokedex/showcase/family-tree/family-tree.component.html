@@ -1,0 +1,247 @@
+<div *ngIf="stageTwoNodes!.length < 3" class="border-red horizontal centered">
+    <div *ngFor="let node of stageOneNodes" class="stage-node centered">
+        <div class="pokemon-name">
+            <div class="horizontal centered">
+                <div class="icon-container">
+                    <img
+                        [src]="'data:image/png;base64,' + node.icon_b64"
+                        alt=""
+                    />
+                </div>
+
+                <div class="centered vertical">
+                    <h4>{{ node.name | titlecase }}</h4>
+                    <p>
+                        {{
+                            node.id < 10
+                                ? "00" + node.id
+                                : node.id < 100
+                                ? "0" + node.id
+                                : node.id
+                        }}
+                    </p>
+                    <div class="type-icons centered vertical">
+                        <img
+                            [src]="
+                                'assets/images/' +
+                                (node.type_one | lowercase) +
+                                '-type-icon.png'
+                            "
+                            alt=""
+                        />
+                        <img
+                            *ngIf="node.type_two"
+                            [src]="
+                                'assets/images/' +
+                                (node.type_two | lowercase) +
+                                '-type-icon.png'
+                            "
+                            alt=""
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vertical centered">
+        <div *ngFor="let node of stageTwoNodes" class="stage-node centered">
+            <div class="pokemon-name">
+                <div class="horizontal centered">
+                    <div class="icon-container">
+                        <img
+                            [src]="'data:image/png;base64,' + node.icon_b64"
+                            alt=""
+                        />
+                    </div>
+
+                    <div class="centered vertical">
+                        <h4>{{ node.name | titlecase }}</h4>
+                        <p>
+                            {{
+                                node.id < 10
+                                    ? "00" + node.id
+                                    : node.id < 100
+                                    ? "0" + node.id
+                                    : node.id
+                            }}
+                        </p>
+                        <div class="type-icons centered vertical">
+                            <img
+                                [src]="
+                                    'assets/images/' +
+                                    (node.type_one | lowercase) +
+                                    '-type-icon.png'
+                                "
+                                alt=""
+                            />
+                            <ng-container *ngIf="node.type_two; else blankType">
+                                <img
+                                    [src]="
+                                        'assets/images/' +
+                                        (node.type_two | lowercase) +
+                                        '-type-icon.png'
+                                    "
+                                    alt=""
+                                />
+                            </ng-container>
+                            <ng-template #blankType>
+                                <img
+                                    style="opacity: 0"
+                                    [src]="
+                                        'assets/images/' +
+                                        (node.type_one | lowercase) +
+                                        '-type-icon.png'
+                                    "
+                                    alt=""
+                                />
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vertical centered">
+        <div *ngFor="let node of stageThreeNodes" class="stage-node centered">
+            <div class="pokemon-name">
+                <div class="horizontal centered">
+                    <div class="icon-container">
+                        <img
+                            [src]="'data:image/png;base64,' + node.icon_b64"
+                            alt=""
+                        />
+                    </div>
+
+                    <div class="centered vertical">
+                        <h4>{{ node.name | titlecase }}</h4>
+                        <p>
+                            {{
+                                node.id < 10
+                                    ? "00" + node.id
+                                    : node.id < 100
+                                    ? "0" + node.id
+                                    : node.id
+                            }}
+                        </p>
+                        <div class="type-icons centered vertical">
+                            <img
+                                [src]="
+                                    'assets/images/' +
+                                    (node.type_one | lowercase) +
+                                    '-type-icon.png'
+                                "
+                                alt=""
+                            />
+                            <img
+                                *ngIf="node.type_two"
+                                [src]="
+                                    'assets/images/' +
+                                    (node.type_two | lowercase) +
+                                    '-type-icon.png'
+                                "
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Eevee case--><!-- Eevee case-->
+<div *ngIf="stageTwoNodes!.length > 3" class="border-red vertical centered">
+    <div *ngFor="let node of stageOneNodes" class="stage-node centered">
+        <div class="pokemon-name">
+            <div class="horizontal centered">
+                <div class="icon-container">
+                    <img
+                        [src]="'data:image/png;base64,' + node.icon_b64"
+                        alt=""
+                    />
+                </div>
+
+                <div class="centered vertical">
+                    <h4>{{ node.name | titlecase }}</h4>
+                    <p>
+                        {{
+                            node.id < 10
+                                ? "00" + node.id
+                                : node.id < 100
+                                ? "0" + node.id
+                                : node.id
+                        }}
+                    </p>
+                    <div class="type-icons centered vertical">
+                        <img
+                            [src]="
+                                'assets/images/' +
+                                (node.type_one | lowercase) +
+                                '-type-icon.png'
+                            "
+                            alt=""
+                        />
+                        <img
+                            *ngIf="node.type_two"
+                            [src]="
+                                'assets/images/' +
+                                (node.type_two | lowercase) +
+                                '-type-icon.png'
+                            "
+                            alt=""
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="horizontal centered">
+        <div *ngFor="let node of stageTwoNodes" class="stage-node centered">
+            <div class="pokemon-name">
+                <div class="horizontal centered">
+                    <div class="icon-container">
+                        <img
+                            [src]="'data:image/png;base64,' + node.icon_b64"
+                            alt=""
+                        />
+                    </div>
+
+                    <div class="centered vertical">
+                        <h4>{{ node.name | titlecase }}</h4>
+                        <p>
+                            {{
+                                node.id < 10
+                                    ? "00" + node.id
+                                    : node.id < 100
+                                    ? "0" + node.id
+                                    : node.id
+                            }}
+                        </p>
+                        <div class="type-icons centered vertical">
+                            <img
+                                [src]="
+                                    'assets/images/' +
+                                    (node.type_one | lowercase) +
+                                    '-type-icon.png'
+                                "
+                                alt=""
+                            />
+                            <img
+                                *ngIf="node.type_two"
+                                [src]="
+                                    'assets/images/' +
+                                    (node.type_two | lowercase) +
+                                    '-type-icon.png'
+                                "
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

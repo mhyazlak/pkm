@@ -1,0 +1,56 @@
+@use "@angular/material" as mat;
+
+$custom-primary: mat.define-palette(
+    (
+        50: #e1f6ff,
+        // You can define all the shades if you want to have a complete palette.
+        100: #b4e7ff,
+        200: #81d7ff,
+        300: #4cc7ff,
+        400: #21baff,
+        500: #00aeff,
+        600: #009ff5,
+        700: #088ce0,
+        800: #087bcc,
+        900: #0c5aaa,
+        A100: #718792,
+        // A100, A200, and A400 are usually used for accent variations.
+        A200: #5d6f78,
+        A400: #2b3f47,
+        contrast: (
+            50: black,
+            100: black,
+            200: black,
+            //... add more contrasts for other shades
+            A100: white,
+            A200: white,
+            A400: white,
+        ),
+    )
+);
+$custom-accent: mat.define-palette(
+    (
+        50: #fff4e1,
+        100: #ffe3b3,
+        200: #ffd182,
+        300: #ffbd4f,
+        400: #ffae27,
+        500: #ffa000,
+        600: #ff9300,
+        700: #ff8300,
+        800: #fd7200,
+        900: #f55600,
+        A100: #ff79b0,
+        A200: #ff5d95,
+        A400: #f50057,
+        contrast: (
+            50: black,
+            100: black,
+            200: black,
+            //... add more contrasts for other shades
+            A100: white,
+            A200: white,
+            A400: white,
+        ),
+    )
+);

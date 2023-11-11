@@ -1,3 +1,53 @@
-.main-view {
-    height: 80vh;
+@import "../../../variables.scss";
+$active-link-color: map-get($custom-primary, 500);
+.main-content {
+    height: calc(100vh - 64px); /* subtract header height */
+    overflow-y: auto;
+}
+mat-list-item.selected-item {
+    background-color: $active-link-color;
+
+    h3,
+    p {
+        color: white !important;
+    }
+    &:hover {
+        background-color: $active-link-color; // Ensure that the hover background color matches the selected background color
+    }
+}
+
+mat-list {
+    min-height: 44.6vh;
+    overflow-y: auto;
+}
+
+mat-list-item {
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: rgba(
+            0,
+            0,
+            0,
+            0.1
+        ); // This is a light gray. Adjust as desired.
+    }
+}
+pokedex-filter {
+    border: 2px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 4px;
+}
+mat-list {
+    border: 2px solid #ccc;
+    margin: 10px;
+    padding: 0;
+    border-radius: 4px;
+}
+pokedex-showcase {
+    border: 2px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 4px;
 }

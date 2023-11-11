@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EntryListComponent } from './entry-list.component';
+import { ShowcaseComponent } from './showcase.component';
 
-describe('EntryListComponent', () => {
-  let component: EntryListComponent;
-  let fixture: ComponentFixture<EntryListComponent>;
+describe('ShowcaseComponent', () => {
+  let component: ShowcaseComponent;
+  let fixture: ComponentFixture<ShowcaseComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [EntryListComponent]
+      declarations: [ShowcaseComponent]
     });
-    fixture = TestBed.createComponent(EntryListComponent);
+    fixture = TestBed.createComponent(ShowcaseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

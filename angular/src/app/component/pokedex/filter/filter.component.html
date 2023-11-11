@@ -1,0 +1,68 @@
+<div fxLayout="column" fxLayoutGap="16px">
+    <!-- Ensure vertical layout with some gap between child elements -->
+
+    <div
+        fxLayout="row"
+        fxLayout.lt-lg="column"
+        fxLayoutGap="10px"
+        fxLayoutGap.lt-md="8px"
+    >
+        <!-- Name Filter -->
+        <div fxFlex="100" fxFlex.lt-lg="100">
+            <mat-form-field appearance="fill" fxFlex="100" fxFlex.lt-md="100">
+                <mat-label>Search by Name</mat-label>
+                <input
+                    matInput
+                    [(ngModel)]="nameFilter"
+                    placeholder="Enter name"
+                />
+            </mat-form-field>
+        </div>
+
+        <!-- Sorting Options -->
+        <div fxFlex="100" fxFlex.lt-lg="100">
+            <mat-form-field appearance="fill" fxFlex="100" fxFlex.lt-md="100">
+                <mat-label>Sort By</mat-label>
+                <mat-select [(value)]="selectedSortOption">
+                    <mat-option value="id">DexNumber</mat-option>
+                    <mat-option value="name">Name</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <mat-expansion-panel
+        (opened)="filterPanelOpenState = true"
+        (closed)="filterPanelOpenState = false"
+    >
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Types
+                <ng-container *ngIf="selectedTypes.length > 0">!</ng-container>
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <!-- Type Checkboxes -->
+        <div class="type-checkboxes">
+            <mat-checkbox
+                *ngFor="let type of pokemonTypes"
+                [value]="type"
+                [ngClass]="type.toLowerCase()"
+                (change)="onTypeCheckboxChange($event, type)"
+            >
+                {{ type | titlecase }}
+            </mat-checkbox>
+        </div>
+    </mat-expansion-panel>
+
+    <!-- Filter Button -->
+    <button
+        id="applyFilterBtn"
+        mat-raised-button
+        color="primary"
+        (click)="onFilterFormSubmit()"
+    >
+        Apply Filter
+    </button>
+    <div class="matched-count" fxLayout="row" fxLayoutAlign="end center">
+        <span>{{ matchedPokemonCount }} Pokémon caught!</span>
+    </div>
+</div>

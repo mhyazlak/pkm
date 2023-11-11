@@ -40,7 +40,7 @@ with open(output_file, "w") as sql_file:
             pokemon_base_spe = data["stats"][5]["base_stat"]
 
             # Write the SQL insert statement with all columns to the file
-            sql_statement = f"INSERT INTO Pokemon (id, name, type_one, type_two, base_hp, base_atk, base_def, base_spa, base_spd, base_spe, pokemon_display_sprite, pokemon_icon_b64) VALUES ({pokemon_id}, '{pokemon_name}', {pokemon_type_one}, {pokemon_type_two}, {pokemon_base_hp}, {pokemon_base_atk}, {pokemon_base_def}, {pokemon_base_spa}, {pokemon_base_spd}, {pokemon_base_spe}, '{pokemon_sprite_url}', '{pokemon_icon_b64}');\n"
+            sql_statement = f"INSERT INTO Pokemon (id, name, type_one, type_two, base_hp, base_atk, base_def, base_spa, base_spd, base_spe, sprite, icon_b64) VALUES ({pokemon_id}, '{pokemon_name}', {pokemon_type_one}, {pokemon_type_two}, {pokemon_base_hp}, {pokemon_base_atk}, {pokemon_base_def}, {pokemon_base_spa}, {pokemon_base_spd}, {pokemon_base_spe}, '{pokemon_sprite_url}', '{pokemon_icon_b64}');\n"
             sql_file.write(sql_statement)
         else:
             print(f"Failed to fetch data for Pokemon with ID {pokemon_id}")

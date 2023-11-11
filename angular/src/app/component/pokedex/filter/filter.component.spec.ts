@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MovedexComponent } from './movedex.component';
+import { FilterComponent } from './filter.component';
 
-describe('MovedexComponent', () => {
-  let component: MovedexComponent;
-  let fixture: ComponentFixture<MovedexComponent>;
+describe('FilterComponent', () => {
+  let component: FilterComponent;
+  let fixture: ComponentFixture<FilterComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MovedexComponent]
+      declarations: [FilterComponent]
     });
-    fixture = TestBed.createComponent(MovedexComponent);
+    fixture = TestBed.createComponent(FilterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

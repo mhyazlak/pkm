@@ -61,11 +61,15 @@ public class PokemonDTO {
     @JsonProperty("base_total")
     private int baseTotal;
 
-    @Column(name = "pokemon_display_sprite", nullable = false)
+    @Column(name = "sprite", nullable = false)
     @JsonProperty("sprite")
     private String sprite;
 
-    @Column(name = "pokemon_icon_b64", nullable = false)
+    @Column(name = "icon_b64", nullable = false)
     @JsonProperty("icon_b64")
-    private String pokemon_icon_b64;
+    private String icon_b64;
+
+    @Column(name="stage", nullable = false)
+    @JsonProperty("stage")
+    private int stage;
 }

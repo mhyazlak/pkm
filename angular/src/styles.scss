@@ -1,19 +1,37 @@
+@use "@angular/material" as mat;
+
+@import "./variables.scss";
+
 /* You can add global styles to this file, and also import other style files */
 *,
 :root {
     margin: 0;
-    padding: 0;
-    --main-colour: #641056;
 }
 
 html {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
-    background-color: grey;
+}
+/* This targets all webkit browsers like Chrome, Safari */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the vertical scrollbar */
+    height: 12px; /* Height for horizontal scrollbars */
 }
 
-.capitalize {
-    text-transform: capitalize;
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
 }
-/* Importing Bootstrap SCSS file. */
-@import "bootstrap/scss/bootstrap";
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* This targets Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}

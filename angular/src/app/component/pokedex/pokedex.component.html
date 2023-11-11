@@ -1,23 +1,45 @@
-<div id="pokedex-container">
-    <div
-        *ngIf="pokemonList.length; else noData"
-        class="container-fluid row m-0 d-flex justify-content-between"
-    >
-        <pokedex-entry-list
-            [pokemonList]="pokemonList"
-            (pokemonSelected)="setSelectedPokemon($event)"
-            class="row col-4 m-0"
-        ></pokedex-entry-list>
-        <pokedex-entry-display
-            [pokemon]="selectedPokemon"
-            (changeSelectedPokemon)="setSelectedPokemon($event)"
-            class="row col-7"
-        ></pokedex-entry-display>
+<div fxLayout="row" fxLayoutGap="16px" class="main-content">
+    <div fxFlex="40%" fxLayout="column" fxLayoutGap="16px">
+        <pokedex-filter
+            fxFlex
+            [matchedPokemonCount]="matchedPokemonCount"
+            (filterChanged)="onFilterChanged($event)"
+        ></pokedex-filter>
+
+        <mat-list>
+            <ng-container *ngFor="let pokemon of pokemonList; let last = last">
+                <mat-list-item
+                    matRipple
+                    (click)="setSelectedPokemon(pokemon)"
+                    [ngClass]="{ 'selected-item': selectedPokemon === pokemon }"
+                >
+                    <img
+                        matListItemAvatar
+                        [src]="'data:image/png;base64,' + pokemon.icon_b64"
+                        alt="{{ pokemon.name }}.icon"
+                    />
+                    <h3 matListItemTitle>{{ pokemon.name | titlecase }}</h3>
+                    <p matListItemLine>
+                        <span>{{
+                            pokemon.id < 10
+                                ? "00" + pokemon.id
+                                : pokemon.id < 100
+                                ? "0" + pokemon.id
+                                : pokemon.id
+                        }}</span>
+                    </p>
+                </mat-list-item>
+
+                <!-- Do not add divider after the last item -->
+                <mat-divider *ngIf="!last"></mat-divider>
+            </ng-container>
+        </mat-list>
     </div>
 
-    <ng-template #noData>
-        <div *ngIf="loading; else failedContent">Loading Pokémon...</div>
-    </ng-template>
-
-    <ng-template #failedContent>Loading failed. Please try again.</ng-template>
+    <pokedex-showcase
+        fxFlex="60%"
+        [selectedPokemon]="selectedPokemon"
+        (pokemonSelected)="setSelectedPokemon($event)"
+    >
+    </pokedex-showcase>
 </div>

@@ -1,0 +1,115 @@
+<div *ngIf="selectedPokemon">
+    <header>
+        <div fxLayout="row" fxFlex="100%" fxLayoutAlign="space-around center">
+            <!-- Previous Entry Button -->
+            <div fxFlex="20%" *ngIf="previousEntry; else emptyEntryShortcut">
+                <button
+                    mat-stroked-button
+                    color="primary"
+                    style="width: 100%; display: block"
+                    (click)="setSelectedPokemon(previousEntry)"
+                >
+                    <h4>{{ previousEntry.name | titlecase }}</h4>
+                    <p>
+                        {{
+                            previousEntry.id < 10
+                                ? "00" + previousEntry.id
+                                : previousEntry.id < 100
+                                ? "0" + previousEntry.id
+                                : previousEntry.id
+                        }}
+                    </p>
+                </button>
+            </div>
+
+            <!-- Selected Pokémon Display -->
+            <div
+                fxLayout="row"
+                fxFlex="30%"
+                fxLayoutAlign="center"
+                fxFlexAlign="center"
+            >
+                <div>
+                    <h1>{{ selectedPokemon.name | titlecase }}</h1>
+                </div>
+            </div>
+
+            <!-- Next Entry Button -->
+            <div fxFlex="20%" *ngIf="nextEntry; else emptyEntryShortcut">
+                <button
+                    mat-stroked-button
+                    color="primary"
+                    style="width: 100%; display: block"
+                    (click)="setSelectedPokemon(nextEntry)"
+                >
+                    <div class="entry-shortcut">
+                        <h4>{{ nextEntry.name | titlecase }}</h4>
+                        <p>
+                            {{
+                                nextEntry.id < 10
+                                    ? "00" + nextEntry.id
+                                    : nextEntry.id < 100
+                                    ? "0" + nextEntry.id
+                                    : nextEntry.id
+                            }}
+                        </p>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+    <mat-divider></mat-divider>
+
+    <main fxLayout="column">
+        <div fxLayout="row">
+            <img [src]="selectedPokemon.sprite" />
+
+            <mat-divider [vertical]="true"></mat-divider>
+            <div id="chart-container">
+                <mat-radio-group [(ngModel)]="selectedChartType">
+                    <mat-radio-button value="polar"
+                        >Polar Chart</mat-radio-button
+                    >
+                    <mat-radio-button value="bar">Bar Chart</mat-radio-button>
+                </mat-radio-group>
+                <!-- Polar Chart -->
+                <ngx-charts-polar-chart
+                    *ngIf="selectedChartType === 'polar'"
+                    [results]="polarChartData"
+                    [view]="[500, 400]"
+                    [scheme]="polarColorScheme"
+                    [xAxis]="true"
+                    [yAxis]="true"
+                    [rangeFillOpacity]="0.3"
+                    [yAxisMinScale]="100"
+                ></ngx-charts-polar-chart>
+
+                <!-- Bar Chart -->
+                <ngx-charts-bar-horizontal-2d
+                    *ngIf="selectedChartType === 'bar'"
+                    [results]="barChartData"
+                    [view]="[500, 400]"
+                    [xAxis]="true"
+                    [yAxis]="true"
+                    [xScaleMax]="252"
+                    [scheme]="barColorScheme"
+                >
+                    ></ngx-charts-bar-horizontal-2d
+                >
+            </div>
+        </div>
+
+        <div id="showFamilyTree" *ngIf="flatTree">
+            <pokedex-family-tree [flatTree]="flatTree"> </pokedex-family-tree>
+        </div>
+    </main>
+</div>
+
+<!-- Placeholder for empty entry shortcut -->
+<ng-template #emptyEntryShortcut>
+    <div fxLayout="row" fxFlex="20%">
+        <div
+            style="width: 100%; height: 100%; background-color: transparent"
+        ></div>
+    </div>
+</ng-template>

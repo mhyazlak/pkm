@@ -14,6 +14,7 @@ export class Pokemon {
     base_spe: number;
     base_total: number;
     icon_b64: string;
+    stage: number;
 
     constructor(
         id: number,
@@ -28,7 +29,8 @@ export class Pokemon {
         base_spd: number,
         base_spe: number,
         base_total: number,
-        icon_b64: string
+        icon_b64: string,
+        stage: number
     ) {
         this.id = id;
         this.name = name;
@@ -43,5 +45,6 @@ export class Pokemon {
         this.base_spe = base_spe;
         this.base_total = base_total;
         this.icon_b64 = icon_b64;
+        this.stage = stage;
     }
 }
